@@ -1,4 +1,5 @@
 #
+# Adding surrogate models from gwsurrogate
 
 debug_output = False
 rosDebug = False
