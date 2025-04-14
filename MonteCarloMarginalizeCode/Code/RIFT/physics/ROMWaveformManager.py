@@ -282,7 +282,7 @@ class WaveformModeCatalog:
             if 'Tidal' in param:
                 self.sur = gws.LoadSurrogate(dirBaseFiles +'/'+group+'/NRHybSur3dq8.h5',surrogate_name_spliced=param)   # get the dimensinoless surrogate file?
             else:
-                self.sur = gws.LoadSurrogate(dirBaseFiles +'/'+group+'/'+param)   # get the dimensinoless surrogate file?
+                self.sur = gws.LoadSurrogate(dirBaseFiles +'/'+group+param)   # get the dimensinoless surrogate file?
             raw_modes = self.sur._sur_dimless.mode_list  # raw modes
             reflection_symmetric = True
             self.modes_available=[]
@@ -301,7 +301,7 @@ class WaveformModeCatalog:
         elif 'BHPT' in param:
             bhpt_modes_list = [(2,2),(2,1),(3,1),(3,2),(3,3),(4,2),(4,3),(4,4),(5,3), (5,4),(5,5),(6,4),(6,5),(6,6),(7,5),(7,6),(7,7),(8,6),(8,7),(8,8),(9,7),(9,8),(9,9),(10,8),(10,9)]
             lm_list = [mode for mode in lm_list if mode in bhpt_modes_list] # only call modes that are in lm_list and available in the surrogate model
-            self.sur = gws.EvaluateSurrogate(dirBaseFiles +'/'+group+'/'+param , ell_m=lm_list)   # get the dimensinoless surrogate file?
+            self.sur = gws.EvaluateSurrogate(dirBaseFiles +'/'+group+param , ell_m=lm_list)   # get the dimensinoless surrogate file?
             raw_modes = list(self.sur.single_mode_dict.keys())  # raw modes
             reflection_symmetric = True
             self.modes_available=[]
