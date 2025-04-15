@@ -914,7 +914,7 @@ if opts.use_title:
     plt.suptitle(opts.use_title)
 
 param_postfix = "_".join(opts.parameter)
-res_base = len(opts.parameter)*dpi_base
+res_base = dpi_base
 if not(opts.matplotlib_block_defaults):
     matplotlib.rcParams.update({'font.size': 11+int(len(opts.parameter)), 'legend.fontsize': legend_font_base+int(1.3*len(opts.parameter))})   # increase font size if I have more panels, to keep similar aspect
 plt.savefig("corner_"+param_postfix+fig_extension,dpi=res_base)        # use more resolution, to make sure each image remains of consistent quality
