@@ -984,7 +984,10 @@ else:
 try:
     plot_JS_divergence(main_posterior_files[-1], main_posterior_files[-2], main_posterior_files[-3], "Main_iteration") # the last secondlast main iteration and last thirdlast main iteration
 except:
-    plot_JS_divergence(main_posterior_files[-1], main_posterior_files[-2], None, "Main_iteration") # the last secondlast main iteration
+    try:
+        plot_JS_divergence(main_posterior_files[-1], main_posterior_files[-2], None, "Main_iteration") # the last secondlast main iteration
+    except:
+        print("Couldn't plot Jensen Shannon Divergence plot")
 
 # is there a subdag? If not, don't plot!
 if len(subdag_posterior_files) == 0:
